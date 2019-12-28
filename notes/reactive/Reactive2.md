@@ -78,4 +78,4 @@ StepVerifier.create(Flux.range(1, 6)
             .verifyComplete();
 ```
 
-4、`zip` 一对一合并，将多个流一对一的合并起来
+4、`zip` 一对一合并，将多个流一对一的合并起来      
