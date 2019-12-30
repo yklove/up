@@ -2,7 +2,9 @@ package cn.yklove.reactor;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -24,5 +26,27 @@ public abstract class Flux<T> implements Publisher<T> {
 
     public Flux<T> filter(Predicate<? super T> p) {
         return new FluxFilter<>(this, p);
+    }
+
+    public void subscribe(Consumer<? super T> consumer) {
+        this.subscribe(new LambdaSubscriber<>(consumer));
+    }
+
+    public void subscribe(Consumer<? super T> consumer,
+                          Consumer<? super Throwable> errorConsumer) {
+        this.subscribe(new LambdaSubscriber<>(consumer,errorConsumer));
+    }
+
+    public void subscribe(Consumer<? super T> consumer,
+                          Consumer<? super Throwable> errorConsumer,
+                          Runnable completeConsumer) {
+        this.subscribe(consumer,errorConsumer,completeConsumer);
+    }
+
+    public void subscribe(Consumer<? super T> consumer,
+                          Consumer<? super Throwable> errorConsumer,
+                          Runnable completeConsumer,
+                          Consumer<? super Subscription> subscriptionConsumer) {
+        this.subscribe(consumer,errorConsumer,completeConsumer,subscriptionConsumer);
     }
 }

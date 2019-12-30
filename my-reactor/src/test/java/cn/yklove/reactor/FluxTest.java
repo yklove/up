@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -100,5 +101,13 @@ public class FluxTest {
                         System.out.println("complete");
                     }
                 });
+    }
+
+    @Test
+    public void lambda() {
+        Flux.just(1, 2, 3, 4, 5)
+                .map(i -> i+1)
+                .filter(i -> i % 2 == 0)
+                .subscribe(System.out::println);
     }
 }
