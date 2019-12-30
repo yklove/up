@@ -1,5 +1,7 @@
 package cn.yklove.webflux.webfluxdemo;
 
+import cn.yklove.webflux.webfluxdemo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -13,11 +15,8 @@ import org.springframework.web.reactive.function.server.*;
 @Configuration
 public class RouterConfig {
 
-    private final TimeHandler timeHandler;
-
-    public RouterConfig(TimeHandler timeHandler) {
-        this.timeHandler = timeHandler;
-    }
+    @Autowired
+    private TimeHandler timeHandler;
 
     @Bean
     public RouterFunction<ServerResponse> timerRouter() {
