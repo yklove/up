@@ -5,18 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.yklove</groupId>
-  <artifactId>up</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>leetcode</module>
-        <module>webflux-demo</module>
-        <module>mvc-with-latency</module>
-        <module>webflux-with-latency</module>
-        <module>my-reactor</module>
-    </modules>
+  <artifactId>my-reactor</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
-    <name>up</name>
+  <name>my-reactor</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,10 +18,11 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.projectreactor</groupId>
-      <artifactId>reactor-core</artifactId>
-      <version>3.3.1.RELEASE</version>
+      <groupId>org.reactivestreams</groupId>
+      <artifactId>reactive-streams</artifactId>
+      <version>1.0.3</version>
     </dependency>
+
 
     <dependency>
       <groupId>junit</groupId>
@@ -37,12 +30,7 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>io.projectreactor</groupId>
-      <artifactId>reactor-test</artifactId>
-      <version>3.3.1.RELEASE</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
+
 
 </project>
