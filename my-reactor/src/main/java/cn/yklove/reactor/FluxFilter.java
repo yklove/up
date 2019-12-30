@@ -51,8 +51,9 @@ public class FluxFilter<T> extends Flux<T> {
             }
             if (p.test(t)) {
                 actual.onNext(t);
+            }else {
+                request(1);
             }
-            request(1);
         }
 
         @Override
