@@ -9,12 +9,10 @@ import reactor.core.scheduler.Schedulers;
 import reactor.test.StepVerifier;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 /**
@@ -203,6 +201,66 @@ public class Reactor2 {
                         request(1); // 9
                     }
                 });
+    }
+
+    @Test
+    public void testGenerate1() {
+        final AtomicInteger count = new AtomicInteger(1);   // 1
+        Flux.generate(sink -> {
+            sink.next(count.get() + " : " + new Date());   // 2
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (count.getAndIncrement() >= 5) {
+                sink.complete();     // 3
+            }
+        }).subscribe(System.out::println);  // 4
+    }
+
+    @Test
+    public void testGenerate2() {
+        Flux.generate(
+                () -> 1,    // 1
+                (count, sink) -> {      // 2
+                    sink.next(count + " : " + new Date());
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (count >= 5) {
+                        sink.complete();
+                    }
+                    return count + 1;   // 3
+                }).subscribe(System.out::println);
+    }
+
+    @Test
+    public void testCreate() throws InterruptedException {
+        MyEventSource eventSource = new MyEventSource();    // 1
+        Flux.create(sink -> {
+                    eventSource.register(new MyEventListener() {    // 2
+                        @Override
+                        public void onNewEvent(MyEventSource.MyEvent event) {
+                            sink.next(event);       // 3
+                        }
+
+                        @Override
+                        public void onEventStopped() {
+                            sink.complete();        // 4
+                        }
+                    });
+                }
+        ).subscribe(System.out::println);       // 5
+
+        for (int i = 0; i < 20; i++) {  // 6
+            Random random = new Random();
+            TimeUnit.MILLISECONDS.sleep(random.nextInt(1000));
+            eventSource.newEvent(new MyEventSource.MyEvent(new Date(), "Event-" + i));
+        }
+        eventSource.eventStopped(); // 7
     }
 
 
