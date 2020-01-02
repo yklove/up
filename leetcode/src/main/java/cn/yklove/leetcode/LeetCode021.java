@@ -13,8 +13,8 @@ public class LeetCode021 {
                 currentNode.next = l1;
                 l1 = l1.next;
             } else {
-                l2 = l2.next;
                 currentNode.next = l2;
+                l2 = l2.next;
             }
             currentNode = currentNode.next;
         }
