@@ -3,7 +3,7 @@ package cn.yklove.leetcode;
 /**
  * @author qinggeng
  */
-public class LeetCode009 {
+public class LeetCode0009 {
 
     public boolean isPalindrome(int x) {
         if(x < 0){

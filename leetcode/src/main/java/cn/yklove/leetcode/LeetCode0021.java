@@ -3,7 +3,7 @@ package cn.yklove.leetcode;
 /**
  * @author qinggeng
  */
-public class LeetCode021 {
+public class LeetCode0021 {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode root = new ListNode(-1);

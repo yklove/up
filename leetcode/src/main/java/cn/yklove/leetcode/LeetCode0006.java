@@ -21,7 +21,7 @@ package cn.yklove.leetcode;
  * @author qinggeng
  * @date 2019-12-27
  */
-public class LeetCode006 {
+public class LeetCode0006 {
 
     public String convert(String s, int numRows) {
         if(numRows == 1){
@@ -59,9 +59,9 @@ public class LeetCode006 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode006().convert("LEETCODEISHIRING", 3));
-        System.out.println(new LeetCode006().convert("PAYPALISHIRING", 4));
-        System.out.println(new LeetCode006().convert("AB", 1));
+        System.out.println(new LeetCode0006().convert("LEETCODEISHIRING", 3));
+        System.out.println(new LeetCode0006().convert("PAYPALISHIRING", 4));
+        System.out.println(new LeetCode0006().convert("AB", 1));
     }
 
 }

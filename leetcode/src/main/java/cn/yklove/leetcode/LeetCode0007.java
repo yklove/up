@@ -4,7 +4,7 @@ package cn.yklove.leetcode;
  * @author qinggeng
  * @date 2019/12/28
  */
-public class LeetCode007 {
+public class LeetCode0007 {
 
     public int reverse(int x) {
         StringBuilder xString = new StringBuilder(String.valueOf(Math.abs(x)));
@@ -21,11 +21,11 @@ public class LeetCode007 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode007().reverse(Integer.MAX_VALUE));
-        System.out.println(new LeetCode007().reverse(Integer.MIN_VALUE));
-        System.out.println(new LeetCode007().reverse(123));
-        System.out.println(new LeetCode007().reverse(-123));
-        System.out.println(new LeetCode007().reverse(120));
+        System.out.println(new LeetCode0007().reverse(Integer.MAX_VALUE));
+        System.out.println(new LeetCode0007().reverse(Integer.MIN_VALUE));
+        System.out.println(new LeetCode0007().reverse(123));
+        System.out.println(new LeetCode0007().reverse(-123));
+        System.out.println(new LeetCode0007().reverse(120));
     }
 
 }

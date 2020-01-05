@@ -3,7 +3,7 @@ package cn.yklove.leetcode;
 import java.util.Objects;
 import java.util.Stack;
 
-public class LeetCode020 {
+public class LeetCode0020 {
 
 
     public boolean isValid(String s) {
@@ -22,10 +22,10 @@ public class LeetCode020 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode020().isValid("()"));
-        System.out.println(new LeetCode020().isValid("()[]{}"));
-        System.out.println(new LeetCode020().isValid("(]"));
-        System.out.println(new LeetCode020().isValid("([)]"));
-        System.out.println(new LeetCode020().isValid("{[]}"));
+        System.out.println(new LeetCode0020().isValid("()"));
+        System.out.println(new LeetCode0020().isValid("()[]{}"));
+        System.out.println(new LeetCode0020().isValid("(]"));
+        System.out.println(new LeetCode0020().isValid("([)]"));
+        System.out.println(new LeetCode0020().isValid("{[]}"));
     }
 }

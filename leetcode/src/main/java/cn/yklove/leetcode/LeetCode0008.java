@@ -4,7 +4,7 @@ package cn.yklove.leetcode;
  * @author qinggeng
  * @date 2019/12/28
  */
-public class LeetCode008 {
+public class LeetCode0008 {
 
     public int myAtoi(String str) {
         StringBuilder stringBuilder = clearString(str);
@@ -58,19 +58,19 @@ public class LeetCode008 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode008().myAtoi(Integer.MAX_VALUE + ""));
-        System.out.println(new LeetCode008().myAtoi("2147483648"));
-        System.out.println(new LeetCode008().myAtoi(Integer.MIN_VALUE + ""));
-        System.out.println(new LeetCode008().myAtoi("-2147483649"));
-        System.out.println(new LeetCode008().myAtoi("42"));
-        System.out.println(new LeetCode008().myAtoi("+42"));
-        System.out.println(new LeetCode008().myAtoi("    -42"));
-        System.out.println(new LeetCode008().myAtoi("4193 with words"));
-        System.out.println(new LeetCode008().myAtoi("words and 987"));
-        System.out.println(new LeetCode008().myAtoi("-91283472332"));
-        System.out.println(new LeetCode008().myAtoi("--91283472332"));
-        System.out.println(new LeetCode008().myAtoi("++91283472332"));
-        System.out.println(new LeetCode008().myAtoi("   +0 123"));
+        System.out.println(new LeetCode0008().myAtoi(Integer.MAX_VALUE + ""));
+        System.out.println(new LeetCode0008().myAtoi("2147483648"));
+        System.out.println(new LeetCode0008().myAtoi(Integer.MIN_VALUE + ""));
+        System.out.println(new LeetCode0008().myAtoi("-2147483649"));
+        System.out.println(new LeetCode0008().myAtoi("42"));
+        System.out.println(new LeetCode0008().myAtoi("+42"));
+        System.out.println(new LeetCode0008().myAtoi("    -42"));
+        System.out.println(new LeetCode0008().myAtoi("4193 with words"));
+        System.out.println(new LeetCode0008().myAtoi("words and 987"));
+        System.out.println(new LeetCode0008().myAtoi("-91283472332"));
+        System.out.println(new LeetCode0008().myAtoi("--91283472332"));
+        System.out.println(new LeetCode0008().myAtoi("++91283472332"));
+        System.out.println(new LeetCode0008().myAtoi("   +0 123"));
     }
 
 }
