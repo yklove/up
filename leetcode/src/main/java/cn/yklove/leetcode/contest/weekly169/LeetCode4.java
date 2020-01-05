@@ -1,4 +1,4 @@
-package cn.yklove.leetcode.contest.weekly16;
+package cn.yklove.leetcode.contest.weekly169;
 
 import java.util.HashMap;
 import java.util.HashSet;

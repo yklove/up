@@ -1,7 +1,6 @@
-package cn.yklove.leetcode.contest.weekly16;
+package cn.yklove.leetcode.contest.weekly169;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
