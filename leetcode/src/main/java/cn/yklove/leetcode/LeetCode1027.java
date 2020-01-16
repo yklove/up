@@ -1,5 +1,7 @@
 package cn.yklove.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @author qinggeng
  */
@@ -22,6 +24,32 @@ public class LeetCode1027 {
             }
         }
         return max;
+    }
+
+    public int longestArithSeqLength2(int[] A) {
+        int n = A.length;
+        if (n < 2) return n;
+        // dp[i][j] 是j 和 i（j-i）做等差数列的最大长度
+        int[][] dp = new int[n][n];
+        // 存放数值对应在dp中的位置
+        int[] index = new int[20001];
+        int res = 2;
+        Arrays.fill(index, -1);
+        for (int i = 0; i < n - 1; i++) {
+            Arrays.fill(dp[i], 2);
+            for (int j = i + 1; j < n; j++) {
+                // 计算出等差数列上一个数字
+                int prev = A[i] * 2 - A[j];
+                // 如果这个数字小于0(因为给定的数据一定大于0)或者这个数字的索引不存在
+                if (prev < 0 || index[prev] == -1) {
+                    continue;
+                }
+                dp[i][j] = dp[index[prev]][i] + 1;
+                res = Math.max(res, dp[i][j]);
+            }
+            index[A[i]] = i;
+        }
+        return res;
     }
 
     public static void main(String[] args) {
