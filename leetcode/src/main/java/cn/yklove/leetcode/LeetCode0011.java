@@ -18,4 +18,7 @@ public class LeetCode0011 {
         return maxarea;
     }
 
+    public static void main(String[] args) {
+        System.out.println(new LeetCode0011().maxArea(new int[]{1,10,9,1,1,1,9,1}));
+    }
 }
